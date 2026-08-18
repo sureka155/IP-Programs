@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DHTML - Dynamic Style Change</title>
+
+    <script>
+        function changeStyle() {
+            // Change font size
+            document.getElementById("content").style.fontSize = "30px";
+
+            // Change text color
+            document.getElementById("content").style.color = "blue";
+
+            // Change background color
+            document.body.style.backgroundColor = "lightyellow";
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2 id="content">Welcome to DHTML</h2>
+
+    <p>
+        Click the button to dynamically change the font size,
+        text color, and background color.
+    </p>
+
+    <button onclick="changeStyle()">Change Style</button>
+
+</body>
+</html>

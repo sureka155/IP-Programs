@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official homepage of Greenfield College">
+    <title>Greenfield College | Home</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #294236;
+            background-color: #fff8e7;
+        }
+
+        /* Header */
+        header {
+            background-color: #1b4332;
+            color: #fff8e7;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        header img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 4px solid #d4a017;
+        }
+
+        header h1 {
+            margin-top: 10px;
+            color: #fff8e7;
+        }
+
+        header p {
+            color: #d8f3dc;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #143d2b;
+            padding: 14px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff8e7;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #d4a017;
+        }
+
+        /* Main */
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 10px;
+        }
+
+        section {
+            background-color: #fffdf5;
+            margin: 20px 0;
+            padding: 28px;
+            border-radius: 10px;
+            border: 1px solid #eadfca;
+            box-shadow: 0 3px 10px rgba(27, 67, 50, 0.08);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            background-color: #e9f5e9;
+            border-top: 5px solid #40916c;
+        }
+
+        .hero h2 {
+            color: #1b4332;
+        }
+
+        .hero img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 3px solid #d8f3dc;
+        }
+
+        .hero a {
+            color: #1b4332;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .hero a:hover {
+            color: #d4a017;
+        }
+
+        /* Headings */
+        h2 {
+            color: #1b4332;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #2d6a4f;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        /* Lists */
+        ul,
+        ol {
+            margin-left: 25px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        /* Course Cards */
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 220px;
+            padding: 20px;
+            background-color: #f3f8ee;
+            border-left: 5px solid #40916c;
+            border-radius: 7px;
+        }
+
+        .card h3 {
+            color: #1b4332;
+            margin-top: 0;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        caption {
+            color: #1b4332;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d6d0bd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1b4332;
+            color: #fff8e7;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f5f1e3;
+        }
+
+        tr:hover {
+            background-color: #e8f3e5;
+        }
+
+        /* Form */
+        form {
+            max-width: 700px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+            color: #1b4332;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            margin-top: 5px;
+            border: 1px solid #c8c1ad;
+            border-radius: 5px;
+            background-color: #fffdf5;
+            color: #294236;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #40916c;
+            box-shadow: 0 0 0 2px #d8f3dc;
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Buttons */
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            background-color: #1b4332;
+            color: #fff8e7;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #40916c;
+        }
+
+        button[type="reset"] {
+            background-color: #8b927f;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #6f7665;
+        }
+
+        /* Contact */
+        address a {
+            color: #2d6a4f;
+            text-decoration: none;
+        }
+
+        address a:hover {
+            color: #d4a017;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #143d2b;
+            color: #fff8e7;
+            text-align: center;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #d4a017;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff8e7;
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+
+            nav a {
+                display: block;
+                margin: 8px;
+            }
+
+            .cards {
+                flex-direction: column;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 26px;
+            }
+
+            th,
+            td {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <img
+            src="https://previews.123rf.com/images/captainvector/captainvector1703/captainvector170309311/74165534-college-logo-element.jpg"
+            alt="Greenfield College Logo"
+        >
+
+        <h1>Greenfield College</h1>
+
+        <p>Knowledge • Innovation • Excellence</p>
+
+    </header>
+
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About Us</a>
+
+        <a href="#courses">Courses</a>
+
+        <a href="#facilities">Facilities</a>
+
+        <a href="#admissions">Admissions</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+
+            <h2>Welcome to Greenfield College</h2>
+
+            <p>
+                Empowering students with quality education, modern skills,
+                and opportunities for a successful future.
+            </p>
+
+            <img
+                src="https://images.uniapply.com/uploads/college/image/500/3613/Greenfield_Public_School_5965_Building1_1.jpg"
+                alt="Greenfield College campus"
+            >
+
+            <p>
+                <a href="#admissions">
+                    Apply for Admission
+                </a>
+
+                |
+
+                <a href="#courses">
+                    Explore Our Courses
+                </a>
+            </p>
+
+        </section>
+
+
+        <!-- About Section -->
+        <section id="about">
+
+            <h2>About Our College</h2>
+
+            <p>
+                Greenfield College is a modern educational institution
+                committed to academic excellence and the overall development
+                of students. Our experienced faculty and modern infrastructure
+                provide an ideal environment for learning.
+            </p>
+
+            <h3>Our Objectives</h3>
+
+            <ul>
+
+                <li>
+                    Provide quality and affordable education.
+                </li>
+
+                <li>
+                    Encourage innovation and research.
+                </li>
+
+                <li>
+                    Develop leadership and communication skills.
+                </li>
+
+                <li>
+                    Promote social responsibility.
+                </li>
+
+            </ul>
+
+            <h3>Why Choose Us?</h3>
+
+            <ol>
+
+                <li>
+                    Experienced and qualified faculty.
+                </li>
+
+                <li>
+                    Modern laboratories and classrooms.
+                </li>
+
+                <li>
+                    Excellent library facilities.
+                </li>
+
+                <li>
+                    Career guidance and placement support.
+                </li>
+
+            </ol>
+
+        </section>
+
+
+        <!-- Courses Section -->
+        <section id="courses">
+
+            <h2>Academic Programs</h2>
+
+            <div class="cards">
+
+                <article class="card">
+
+                    <h3>B.Sc. Computer Science</h3>
+
+                    <p>
+                        Learn programming, databases, networking,
+                        artificial intelligence, and software development.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <h3>B.Com</h3>
+
+                    <p>
+                        Develop knowledge in accounting, finance,
+                        taxation, business, and management.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <h3>B.A. English</h3>
+
+                    <p>
+                        Study literature, communication, creative writing,
+                        and language development.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <!-- Course Table -->
+            <h3>Course Details</h3>
+
+            <table>
+
+                <caption>
+                    Undergraduate Programs
+                </caption>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Course</th>
+
+                        <th>Duration</th>
+
+                        <th>Eligibility</th>
+
+                        <th>Mode</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            B.Sc. Computer Science
+                        </td>
+
+                        <td>
+                            3 Years
+                        </td>
+
+                        <td>
+                            Higher Secondary
+                        </td>
+
+                        <td>
+                            Regular
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            B.Com
+                        </td>
+
+                        <td>
+                            3 Years
+                        </td>
+
+                        <td>
+                            Higher Secondary
+                        </td>
+
+                        <td>
+                            Regular
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            B.A. English
+                        </td>
+
+                        <td>
+                            3 Years
+                        </td>
+
+                        <td>
+                            Higher Secondary
+                        </td>
+
+                        <td>
+                            Regular
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- Facilities -->
+        <section id="facilities">
+
+            <h2>Our Facilities</h2>
+
+            <ul>
+
+                <li>
+                    Digital classrooms
+                </li>
+
+                <li>
+                    Computer laboratories
+                </li>
+
+                <li>
+                    Central library
+                </li>
+
+                <li>
+                    Science laboratories
+                </li>
+
+                <li>
+                    Sports and recreation facilities
+                </li>
+
+                <li>
+                    Seminar and conference halls
+                </li>
+
+                <li>
+                    College canteen
+                </li>
+
+                <li>
+                    Wi-Fi enabled campus
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- Admissions -->
+        <section id="admissions">
+
+            <h2>Admission Enquiry</h2>
+
+            <p>
+                Interested students can submit the following form to request
+                more information about our programs.
+            </p>
+
+            <form action="#" method="post">
+
+                <label for="name">
+                    Full Name:
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+
+                <label for="email">
+                    Email Address:
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label for="phone">
+                    Phone Number:
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                >
+
+
+                <label for="course">
+                    Select Course:
+                </label>
+
+                <select
+                    id="course"
+                    name="course"
+                    required
+                >
+
+                    <option value="">
+                        -- Select a course --
+                    </option>
+
+                    <option value="bsc">
+                        B.Sc. Computer Science
+                    </option>
+
+                    <option value="bcom">
+                        B.Com
+                    </option>
+
+                    <option value="ba">
+                        B.A. English
+                    </option>
+
+                </select>
+
+
+                <label for="message">
+                    Message:
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Enter your enquiry"
+                ></textarea>
+
+
+                <button type="submit">
+                    Submit Enquiry
+                </button>
+
+                <button type="reset">
+                    Reset
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Contact -->
+        <section id="contact">
+
+            <h2>Contact Us</h2>
+
+            <address>
+
+                <strong>
+                    Greenfield College
+                </strong>
+
+                <br>
+
+                College Road, Greenfield City
+
+                <br>
+
+                Kerala, India
+
+                <br>
+
+                Email:
+
+                <a href="mailto:info@greenfieldcollege.edu">
+                    info@greenfieldcollege.edu
+                </a>
+
+                <br>
+
+                Phone:
+
+                <a href="tel:+911234567890">
+                    +91 12345 67890
+                </a>
+
+            </address>
+
+            <p>
+
+                Visit our
+
+                <a
+                    href="https://www.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    official location map
+                </a>
+
+                for directions.
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 Greenfield College.
+            All Rights Reserved.
+        </p>
+
+        <p>
+
+            <a href="#home">
+                Home
+            </a>
+
+            |
+
+            <a href="#about">
+                About
+            </a>
+
+            |
+
+            <a href="#courses">
+                Courses
+            </a>
+
+            |
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </p>
+
+    </footer>
+
+</body>
+</html>

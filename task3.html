@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Placement Registration</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+
+            /* Teal + Dark Navy */
+            background: linear-gradient(135deg, #11998e, #0f2027);
+        }
+
+        /* Main Form Container */
+        .container {
+            width: 500px;
+            max-width: 100%;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+
+            animation: slideUp 0.8s ease;
+        }
+
+        /* Animation */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .icon {
+            width: 70px;
+            height: 70px;
+
+            margin: auto;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 50%;
+
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+
+            color: white;
+            font-size: 32px;
+
+            box-shadow: 0 8px 20px rgba(17, 153, 142, 0.4);
+        }
+
+        h2 {
+            margin-top: 15px;
+            color: #0f2027;
+            font-size: 26px;
+        }
+
+        .subtitle {
+            margin-top: 6px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Input Box */
+        .input-box {
+            position: relative;
+        }
+
+        .input-box span {
+            position: absolute;
+
+            left: 14px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 17px;
+        }
+
+        input,
+        select {
+            width: 100%;
+
+            padding: 12px 14px 12px 42px;
+
+            border: 2px solid #ddd;
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 14px;
+
+            background: #f8fafa;
+
+            transition: 0.3s;
+        }
+
+        select {
+            padding-left: 14px;
+            cursor: pointer;
+        }
+
+        /* Hover */
+        input:hover,
+        select:hover {
+            border-color: #11998e;
+        }
+
+        /* Focus */
+        input:focus,
+        select:focus {
+            border-color: #11998e;
+
+            background: white;
+
+            box-shadow:
+                0 0 0 4px rgba(17, 153, 142, 0.12);
+        }
+
+        /* Valid Input */
+        input.valid {
+            border-color: #28a745;
+            background: #f3fff5;
+        }
+
+        /* Invalid Input */
+        input.invalid {
+            border-color: #dc3545;
+            background: #fff5f5;
+        }
+
+        /* Error Message */
+        .error {
+            display: none;
+
+            margin-top: 5px;
+
+            color: #dc3545;
+
+            font-size: 12px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 8px;
+
+            border: none;
+            border-radius: 10px;
+
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            background: linear-gradient(
+                135deg,
+                #11998e,
+                #38ef7d
+            );
+
+            transition: 0.3s;
+        }
+
+        /* Button Hover */
+        .submit-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px rgba(17, 153, 142, 0.35);
+        }
+
+        /* Button Click */
+        .submit-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* Success Message */
+        #successMessage {
+            display: none;
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            color: #155724;
+
+            background: #d4edda;
+
+            font-size: 14px;
+
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 550px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 25px 20px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+
+            <div class="icon">
+                🎓
+            </div>
+
+            <h2>Placement Registration</h2>
+
+            <p class="subtitle">
+                Register for upcoming campus placement opportunities
+            </p>
+
+        </div>
+
+
+        <!-- Form -->
+        <form id="placementForm">
+
+            <!-- Student Name -->
+            <div class="form-group">
+
+                <label for="name">
+                    Student Name
+                </label>
+
+                <div class="input-box">
+
+                    <span>👤</span>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                    >
+
+                </div>
+
+                <div class="error" id="nameError"></div>
+
+            </div>
+
+
+            <!-- Register Number -->
+            <div class="form-group">
+
+                <label for="regno">
+                    Register Number
+                </label>
+
+                <div class="input-box">
+
+                    <span>🆔</span>
+
+                    <input
+                        type="text"
+                        id="regno"
+                        placeholder="Enter register number"
+                    >
+
+                </div>
+
+                <div class="error" id="regnoError"></div>
+
+            </div>
+
+
+            <!-- Email -->
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <div class="input-box">
+
+                    <span>✉️</span>
+
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="student@example.com"
+                    >
+
+                </div>
+
+                <div class="error" id="emailError"></div>
+
+            </div>
+
+
+            <!-- Mobile -->
+            <div class="form-group">
+
+                <label for="mobile">
+                    Mobile Number
+                </label>
+
+                <div class="input-box">
+
+                    <span>📱</span>
+
+                    <input
+                        type="text"
+                        id="mobile"
+                        placeholder="10-digit mobile number"
+                    >
+
+                </div>
+
+                <div class="error" id="mobileError"></div>
+
+            </div>
+
+
+            <!-- Department -->
+            <div class="form-group">
+
+                <label for="dept">
+                    Department
+                </label>
+
+                <select id="dept">
+
+                    <option value="">
+                        -- Select Department --
+                    </option>
+
+                    <option value="CSE">
+                        Computer Science Engineering
+                    </option>
+
+                    <option value="ECE">
+                        Electronics and Communication
+                    </option>
+
+                    <option value="EEE">
+                        Electrical and Electronics
+                    </option>
+
+                    <option value="IT">
+                        Information Technology
+                    </option>
+
+                    <option value="MECH">
+                        Mechanical Engineering
+                    </option>
+
+                </select>
+
+                <div class="error" id="deptError"></div>
+
+            </div>
+
+
+            <!-- CGPA -->
+            <div class="form-group">
+
+                <label for="cgpa">
+                    CGPA
+                </label>
+
+                <div class="input-box">
+
+                    <span>⭐</span>
+
+                    <input
+                        type="text"
+                        id="cgpa"
+                        placeholder="Example: 8.75"
+                    >
+
+                </div>
+
+                <div class="error" id="cgpaError"></div>
+
+            </div>
+
+
+            <!-- Submit Button -->
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                Register for Placement 🚀
+            </button>
+
+
+            <!-- Success Message -->
+            <div id="successMessage">
+                ✅ Registration successful! All details are valid.
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <script>
+
+        const form =
+            document.getElementById("placementForm");
+
+
+        /* Regular Expressions */
+
+        const nameRegex =
+            /^[A-Za-z ]{3,30}$/;
+
+        const regRegex =
+            /^[A-Za-z0-9]{6,12}$/;
+
+        const emailRegex =
+            /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+        const mobileRegex =
+            /^[6-9][0-9]{9}$/;
+
+        const cgpaRegex =
+            /^(10(\.0)?|[0-9](\.[0-9]{1,2})?)$/;
+
+
+        /* Show Error */
+
+        function showError(input, error, message) {
+
+            input.classList.remove("valid");
+
+            input.classList.add("invalid");
+
+            error.textContent = message;
+
+            error.style.display = "block";
+        }
+
+
+        /* Show Success */
+
+        function showSuccess(input, error) {
+
+            input.classList.remove("invalid");
+
+            input.classList.add("valid");
+
+            error.style.display = "none";
+        }
+
+
+        /* Form Submit */
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            let valid = true;
+
+
+            /* Get Values */
+
+            const name =
+                document.getElementById("name");
+
+            const regno =
+                document.getElementById("regno");
+
+            const email =
+                document.getElementById("email");
+
+            const mobile =
+                document.getElementById("mobile");
+
+            const dept =
+                document.getElementById("dept");
+
+            const cgpa =
+                document.getElementById("cgpa");
+
+
+            /* Get Error Elements */
+
+            const nameError =
+                document.getElementById("nameError");
+
+            const regnoError =
+                document.getElementById("regnoError");
+
+            const emailError =
+                document.getElementById("emailError");
+
+            const mobileError =
+                document.getElementById("mobileError");
+
+            const deptError =
+                document.getElementById("deptError");
+
+            const cgpaError =
+                document.getElementById("cgpaError");
+
+
+            /* Name Validation */
+
+            if (!nameRegex.test(name.value.trim())) {
+
+                showError(
+                    name,
+                    nameError,
+                    "Enter a valid name (3-30 letters)."
+                );
+
+                valid = false;
+
+            } else {
+
+                showSuccess(name, nameError);
+
+            }
+
+
+            /* Register Number Validation */
+
+            if (!regRegex.test(regno.value.trim())) {
+
+                showError(
+                    regno,
+                    regnoError,
+                    "Register number must contain 6-12 characters."
+                );
+
+                valid = false;
+
+            } else {
+
+                showSuccess(regno, regnoError);
+
+            }
+
+
+            /* Email Validation */
+
+            if (!emailRegex.test(email.value.trim())) {
+
+                showError(
+                    email,
+                    emailError,
+                    "Enter a valid email address."
+                );
+
+                valid = false;
+
+            } else {
+
+                showSuccess(email, emailError);
+
+            }
+
+
+            /* Mobile Validation */
+
+            if (!mobileRegex.test(mobile.value.trim())) {
+
+                showError(
+                    mobile,
+                    mobileError,
+                    "Enter a valid 10-digit mobile number."
+                );
+
+                valid = false;
+
+            } else {
+
+                showSuccess(mobile, mobileError);
+
+            }
+
+
+            /* Department Validation */
+
+            if (dept.value === "") {
+
+                dept.style.borderColor = "#dc3545";
+
+                deptError.textContent =
+                    "Please select your department.";
+
+                deptError.style.display = "block";
+
+                valid = false;
+
+            } else {
+
+                dept.style.borderColor = "#28a745";
+
+                deptError.style.display = "none";
+
+            }
+
+
+            /* CGPA Validation */
+
+            const cgpaValue =
+                parseFloat(cgpa.value);
+
+
+            if (
+                !cgpaRegex.test(cgpa.value.trim()) ||
+                cgpaValue < 0 ||
+                cgpaValue > 10
+            ) {
+
+                showError(
+                    cgpa,
+                    cgpaError,
+                    "CGPA must be between 0 and 10."
+                );
+
+                valid = false;
+
+            } else {
+
+                showSuccess(cgpa, cgpaError);
+
+            }
+
+
+            /* Final Result */
+
+            if (valid) {
+
+                document.getElementById(
+                    "successMessage"
+                ).style.display = "block";
+
+            } else {
+
+                document.getElementById(
+                    "successMessage"
+                ).style.display = "none";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

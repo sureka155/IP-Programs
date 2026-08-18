@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Event Handling</title>
+
+    <script>
+        // ondblclick event
+        function doubleClick() {
+            alert("You double-clicked the button!");
+        }
+
+        // onfocus event
+        function focusEvent() {
+            document.getElementById("message").innerHTML =
+                "The text box is focused.";
+        }
+
+        // onchange event
+        function changeEvent() {
+            document.getElementById("message").innerHTML =
+                "The value has been changed.";
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>JavaScript Event Handling</h2>
+
+    <!-- ondblclick event -->
+    <button ondblclick="doubleClick()">Double Click Me</button>
+
+    <br><br>
+
+    <!-- onfocus event -->
+    <input type="text"
+           placeholder="Click here"
+           onfocus="focusEvent()">
+
+    <br><br>
+
+    <!-- onchange event -->
+    <select onchange="changeEvent()">
+        <option>Select a color</option>
+        <option>Red</option>
+        <option>Blue</option>
+        <option>Green</option>
+    </select>
+
+    <p id="message"></p>
+
+</body>
+</html>
